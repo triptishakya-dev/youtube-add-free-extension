@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "initiatorDomains": ["youtube.com"],
+      "requestDomains": [
+        "doubleclick.net",
+        "googleadservices.com",
+        "googlesyndication.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "xmlhttprequest",
+        "sub_frame",
+        "ping"
+      ]
+    }
+  }
+]
