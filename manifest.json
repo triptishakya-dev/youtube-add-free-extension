@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Ad Guard",
+  "version": "0.1.0",
+  "description": "A local-first starter extension that blocks a small set of known YouTube advertising requests.",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "youtube_ad_rules",
+        "enabled": true,
+        "path": "rules/youtube-ad-rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "js": [
+        "content/youtube-detector.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}
