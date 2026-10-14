@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Ad Guard</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <h1>YouTube Ad Guard</h1>
+      <p class="subtitle">YouTube-focused starter protection</p>
+
+      <section class="summary-card" aria-label="Protection activity summary">
+        <span class="summary-label">AD ACTIVITY HANDLED</span>
+        <strong id="total-count">0</strong>
+        <span class="summary-caption">this browser session</span>
+        <div class="summary-breakdown">
+          <span><b id="summary-hidden-count">0</b> hidden</span>
+          <span><b id="summary-detected-count">0</b> player indicators</span>
+        </div>
+      </section>
+
+      <label class="toggle-row" for="protection-toggle">
+        <span>
+          <strong>Protection</strong>
+          <small>Enable the packaged network rules</small>
+        </span>
+        <input id="protection-toggle" type="checkbox" role="switch">
+      </label>
+
+      <section class="status-card" aria-live="polite">
+        <span id="status-dot" class="status-dot"></span>
+        <p id="status-message">Checking status…</p>
+      </section>
+
+      <section class="counter-card">
+        <span class="counter-label">Page elements hidden</span>
+        <strong id="hidden-count">0</strong>
+      </section>
+
+      <p class="note">This extension blocks a small set of known ad requests and hides clearly labeled promotional containers. It cannot guarantee every YouTube ad is blocked.</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
