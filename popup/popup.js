@@ -11,7 +11,7 @@ function setStatus(message, type = "neutral") {
 async function readStatus() {
   const [rulesetState, storedState, tabs] = await Promise.all([
     chrome.declarativeNetRequest.getEnabledRulesets(),
-    chrome.storage.local.get(["lastAdIndicatorDetected", "hiddenElementCount", "adIndicatorCount"]),
+    chrome.storage.local.get(["lastAdIndicatorDetected", "hiddenElementCount", "adIndicatorCount", "skippedAdCount"]),
     chrome.tabs.query({ active: true, currentWindow: true })
   ]);
 
@@ -19,7 +19,7 @@ async function readStatus() {
   const activeTab = tabs[0];
   const isYouTube = activeTab?.url?.includes("youtube.com");
   const hiddenCount = storedState.hiddenElementCount || 0;
-  const detectedCount = storedState.adIndicatorCount || 0;
+  const detectedCount = (storedState.adIndicatorCount || 0) + (storedState.skippedAdCount || 0);
   document.querySelector("#hidden-count").textContent = hiddenCount;
   document.querySelector("#summary-hidden-count").textContent = hiddenCount;
   document.querySelector("#summary-detected-count").textContent = detectedCount;
