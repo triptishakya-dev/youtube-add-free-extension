@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "YouTube Ad Guard",
-  "version": "0.1.1",
-  "description": "A local-first starter extension that blocks a small set of known YouTube advertising requests.",
+  "version": "0.2.0",
+  "description": "YouTube-focused request filtering with adaptive page and player ad handling.",
   "permissions": [
     "storage",
     "declarativeNetRequest",
@@ -29,7 +29,8 @@
       ],
       "js": [
         "content/youtube-detector.js"
-      ]
+      ],
+      "run_at": "document_start"
     }
   ],
   "action": {
